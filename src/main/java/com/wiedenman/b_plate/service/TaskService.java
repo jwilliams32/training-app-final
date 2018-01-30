@@ -27,6 +27,8 @@ public interface TaskService {
 
     Iterable<Task> findAll();
 
+// shows the task of the users
+
 //    Iterable<Task> findAllByUserId(long id);
 
     Task findOne(Long id);

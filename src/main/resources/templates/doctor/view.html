@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<!--<head th:replace="fragments :: head"></head>-->
+<head lang="en">
+    <meta charset="UTF-8"/>
+    <meta description="viewport" content="width=device-width, initial-scale=1"/>
+    <link rel="stylesheet" th:href="@{/assets/css/app.css}"/>
+    <script th:src="@{/assets/ckeditor/ckeditor.js}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js"></script>
+    <title>b-plate</title>
+</head>
+<body>
+<main>
+    <nav th:replace="fragments :: navigation"></nav>
+    <div class="small-gap"></div>
+    <div class="container">
+        <!--<h1>Edit Test <span th:text="${doctor.name}"></span></h1>-->
+        <!--<h4>Cheese Id : <span th:text="${cheeseId}"></span></h4>-->
+        <table class="table">
+            <tr th:each="doctor : ${doctors}">
+                <!--<td>Name :</td>-->
+                <!--<td th:text="*{title}"></td>-->
+            </tr>
+            <tr>
+                <td>Doctor: </td>
+                <td th:text="*{title}"></td>
+            </tr>
+            <tr>
+                <td>Clinic :</td>
+                <td th:text="*{clinic}"></td>
+            </tr>
+            <tr>
+                <td>Work Up:</td>
+                <td th:text="*{instruction}"></td>
+            </tr>
+        </table>
+
+
+    </div>
+    <div class="small-gap"></div>
+</main>
+<footer th:replace="fragments :: footer"></footer>
+<div th:replace="fragments :: scripts"></div>
+</body>
+</html>
+
+
+<!--TODO Before fixing the issue-->
+<!--<!DOCTYPE html>-->
+<!--<html lang="en" xmlns:th="http://www.thymeleaf.org/">-->
+<!--<head th:replace="fragments :: head"></head>-->
+
+<!--<body class="container">-->
+
+<!--<h1 th:text="${title}">Default Title</h1>-->
+
+<!--<nav th:replace="fragments :: navigation"></nav>-->
+
+<!--<table class="table">-->
+    <!--<tr th:each="doctor : ${doctors}">-->
+        <!--<td>Name :</td>-->
+        <!--<td th:text="*{title}"></td>-->
+    <!--</tr>-->
+    <!--<tr>-->
+        <!--<td>Doctor: </td>-->
+        <!--<td th:text="*{title}"></td>-->
+    <!--</tr>-->
+    <!--<tr>-->
+        <!--<td>Clinic :</td>-->
+        <!--<td th:text="*{clinic}"></td>-->
+    <!--</tr>-->
+    <!--<tr>-->
+        <!--<td>Work Up:</td>-->
+        <!--<td th:text="*{instruction}"></td>-->
+    <!--</tr>-->
+<!--</table>-->
+
+
+<!--<table class="table">-->
+    <!--<tr th:each="doctor : ${doctors}">-->
+        <!--<td>Doctor:</td>-->
+        <!--<td th:text="*{name}"></td>-->
+    <!--</tr>-->
+
+    <!--<tr>-->
+        <!--<td>Clinic:</td>-->
+        <!--<td th:text="*{clinic}"></td>-->
+    <!--</tr>-->
+
+    <!--<tr>-->
+        <!--<td>Work Up:</td>-->
+        <!--<td th:text="*{description}"></td>-->
+    <!--</tr>-->
+<!--</table>-->
+<!--<p th:unless="${doctors.size()}"><i>No Test Yet</i></p>-->
+
+<!--<p><a th:href="'/menu/add-item/' + ${menuId}">Add Cheese</a></p>-->
+
+
+
+
+<!--</body>-->
+<!--</html>-->

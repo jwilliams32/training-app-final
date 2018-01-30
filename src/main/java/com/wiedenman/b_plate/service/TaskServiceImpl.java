@@ -36,7 +36,7 @@ public class TaskServiceImpl implements TaskService {
     public Iterable<Task> findAll() {
         return taskDao.findAll();
     }
-
+// Allows you to search for user by ID and view their task
 //    @Override
 //    public Iterable<Task> findAllByUserId(long id) {
 //        return taskDao.findAllByUserId(id);

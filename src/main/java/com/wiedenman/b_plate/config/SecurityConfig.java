@@ -62,13 +62,13 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder(10);
     }
-
+//assets/** allows for these files to be viewed publicly
     @Override
     public void configure(WebSecurity web) throws Exception {
         web.ignoring().antMatchers("/assets/**");
         web.ignoring().antMatchers("/favicon.ico");
     }
-
+//Paths, add paths that are accessible by admin
     @Override
     protected void configure(HttpSecurity http) throws Exception {
 
@@ -80,12 +80,21 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/forgot*").permitAll()
                 .antMatchers("/reset*").permitAll()
                 .antMatchers("/page/*").permitAll()
+                .antMatchers("/doctor/view").permitAll()
+                .antMatchers("/test/view").permitAll()
+                .antMatchers("/tasks").hasAnyRole("USER", "ADMIN", "PUBLISHER")
+                .antMatchers("/mark").hasAnyRole("USER", "ADMIN", "PUBLISHER")
+                .antMatchers("/todo").hasAnyRole("USER", "ADMIN", "PUBLISHER")
                 .antMatchers("/profile").hasAnyRole("USER", "ADMIN", "PUBLISHER")
                 .antMatchers("/close-my-account").hasAnyRole("USER", "ADMIN", "PUBLISHER")
                 .antMatchers("/goodbye").permitAll()
                 .antMatchers("/pages").hasAnyRole("ADMIN", "PUBLISHER")
                 .antMatchers("/page/edit/*").hasAnyRole("ADMIN", "PUBLISHER")
                 .antMatchers("/page/delete").hasAnyRole("ADMIN", "PUBLISHER")
+                .antMatchers("/doctor/add").hasRole("ADMIN")
+                .antMatchers("/test/add").hasRole("ADMIN")
+                .antMatchers("/doctor/edit").hasRole("ADMIN")
+                .antMatchers("/test/edit").hasRole("ADMIN")
                 .antMatchers("/users").hasRole("ADMIN")
                 .antMatchers("/user/edit/*").hasRole("ADMIN")
                 .antMatchers("/user-enable").hasRole("ADMIN")
@@ -106,8 +115,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     }
 
     private AuthenticationSuccessHandler loginSuccessHandler() {
-
-        return (request, response, authentication) -> response.sendRedirect("/todo");
+//This is the log in page
+        return (request, response, authentication) -> response.sendRedirect("/doctor");
     }
 
     private AuthenticationFailureHandler loginFailureHandler() {

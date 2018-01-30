@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<!--<head th:replace="fragments :: head"></head>-->
+<head lang="en">
+    <meta charset="UTF-8"/>
+    <meta description="viewport" content="width=device-width, initial-scale=1"/>
+    <link rel="stylesheet" th:href="@{/assets/css/app.css}"/>
+    <script th:src="@{/assets/ckeditor/ckeditor.js}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js"></script>
+    <title>b-plate</title>
+</head>
+<body>
+<main>
+    <nav th:replace="fragments :: navigation"></nav>
+    <div class="small-gap"></div>
+    <div class="container">
+        <h3 th:text="${title}">Default Title</h3>
+        <form method="post" style="max-width:600px;" th:object="${doctor}" th:action="@{/doctor/edit/} + ${doctor.id}">
+
+        <div class="form-group">
+        <label th:for="name">Name</label>
+        <input class="form-control" th:field="*{name}" />
+        <span th:errors="*{name}" class="error"></span>
+        </div>
+        <div class="form-group">
+        <label th:for="clinic">Clinic</label>
+        <input class="form-control" th:field="*{clinic}" />
+        <span th:errors="*{clinic}" class="error"></span>
+        </div>
+        <!--Loops over list of categories using name and id properties to set up each value-->
+        <!--<div class="form-group">-->
+        <!--<label th:for="description">Workup</label>-->
+        <!--<input class="form-control" th:field="*{description}" />-->
+        <!--<span th:errors="*{description}" class="error"></span>-->
+        <!--</div>-->
+
+            <div class="form-group">
+                <label th:for="description">Work Up:</label>
+                <textarea class="form-control" rows="5" id="descripiton" th:field="*{description}"></textarea>
+                <span th:errors="*{description}" class="error"></span>
+            </div>
+
+
+            <input type="hidden" th:value="${doctor.id}" name="doctorId" />
+
+        <input type="submit" value="Save Doctor" />
+        </form>
+
+
+    </div>
+    <div class="small-gap"></div>
+</main>
+<footer th:replace="fragments :: footer"></footer>
+<div th:replace="fragments :: scripts"></div>
+</body>
+</html>
+
+
+
+
+<!--TODO Original Form-->
+<!--<!DOCTYPE html>-->
+<!--<html lang="en" xmlns:th="http://www.thymeleaf.org/">-->
+<!--<head th:replace="fragments :: head"></head>-->
+<!--<body class="container">-->
+<!--<nav th:replace="fragments :: navigation"></nav>-->
+
+<!--<h1 th:text="${title}"> Edit Doctor </h1>-->
+<!--<h1>Edit Doctor <div th:text="${doctor.name}"></div></h1>-->
+
+<!--<h4>Cheese Id : <span th:text="${cheeseId}"></span></h4>-->
+
+<!--<form method="post" style="max-width:600px;" th:object="${doctor}" th:action="@{/doctor/edit/} + ${doctor.id}">-->
+
+    <!--<div class="form-group">-->
+        <!--<label th:for="name">Name</label>-->
+        <!--<input class="form-control" th:field="*{name}" />-->
+        <!--<span th:errors="*{name}" class="error"></span>-->
+    <!--</div>-->
+    <!--<div class="form-group">-->
+        <!--<label th:for="clinic">Clinic</label>-->
+        <!--<input class="form-control" th:field="*{clinic}" />-->
+        <!--<span th:errors="*{clinic}" class="error"></span>-->
+    <!--</div>-->
+    <!--&lt;!&ndash;Loops over list of categories using name and id properties to set up each value&ndash;&gt;-->
+    <!--<div class="form-group">-->
+        <!--<label th:for="description">Workup</label>-->
+        <!--<input class="form-control" th:field="*{description}" />-->
+        <!--<span th:errors="*{description}" class="error"></span>-->
+    <!--</div>-->
+
+    <!--<input type="hidden" th:value="${doctor.id}" name="doctorId" />-->
+
+    <!--<input type="submit" value="Save Doctor" />-->
+<!--</form>-->
+
+<!--</body>-->
+<!--</html>-->
+
+<!--<br>-->
+<!--<textarea row="4" cols="10" name="description" form="docform">-->
+<!--Enter work up here....-->
+<!--</textarea>-->

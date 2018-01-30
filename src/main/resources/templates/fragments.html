@@ -32,10 +32,15 @@
             <ul th:case="true">
                 <!-- TODO: make this visible to admin and publisher from front end only-->
                 <!--<li><a href="#">edit this page</a></li>-->
-                <li><a th:href="@{/todo}">tasks</a></li>
-                <li><a th:href="@{/pages}" sec:authorize="hasRole('ROLE_ADMIN') or hasRole('ROLE_PUBLISHER')">pages</a></li>
-                <li><a href="#" sec:authorize="hasRole('ROLE_ADMIN') or hasRole('ROLE_PUBLISHER')">images</a></li>
-                <li><a th:href="@{/users}" sec:authorize="hasRole('ROLE_ADMIN')">users</a></li>
+                <li><a th:href="@{/todo}">Tasks</a></li>
+                <li><a th:href="@{/doctor}">Doctors</a></li>
+                <li><a th:href="@{/pages}" sec:authorize="hasRole('ROLE_ADMIN') or hasRole('ROLE_PUBLISHER')">Pages</a></li>
+                <!--<li><a href="#" sec:authorize="hasRole('ROLE_ADMIN') or hasRole('ROLE_PUBLISHER')">images</a></li>-->
+                <li><a th:href="@{/users}" sec:authorize="hasRole('ROLE_ADMIN')">Users</a></li>
+                <li><a th:href="@{/test}" sec:authorize="hasRole('ROLE_ADMIN')">Tests</a></li>
+                <!--<li><a th:href="@{/doctor/edit}" sec:authorize="hasRole('ROLE_ADMIN')">Edit Doctors</a></li>-->
+
+
                 <li>
                     <a sec:authentication="name" class="Lheader-item" th:href="@{/profile}" style="font-weight: 400;"></a>
                 </li>
@@ -59,7 +64,8 @@
             <ul th:case="${true}">
                 <li class="small-gap"></li>
                 <li><a  sec:authentication="name" class="Lheader-item" th:href="@{/profile}" style="font-size: 1.3rem;"></a></li>
-                <li><a th:href="@{/todo}">tasks</a></li>
+                <li><a th:href="@{/todo}">Tasks</a></li>
+                <li><a th:href="@{/doctor/view}">Doctors</a></li>
                 <li><a th:href="@{/pages}" sec:authorize="hasRole('ROLE_ADMIN') or hasRole('ROLE_PUBLISHER')">pages</a></li>
                 <li><a href="#" sec:authorize="hasRole('ROLE_ADMIN') or hasRole('ROLE_PUBLISHER')">images</a></li>
                 <li><a th:href="@{/users}" sec:authorize="hasRole('ROLE_ADMIN')">users</a></li>
@@ -98,9 +104,9 @@
             <div class="col l4 offset-l2 s12">
                 <h5 class="white-text">Links</h5>
                 <ul>
-                    <li><a class="grey-text text-lighten-3" href="/page/index">home</a></li>
-                    <li><a class="grey-text text-lighten-3" href="/page/features">features</a></li>
-                    <li><a class="grey-text text-lighten-3" href="/page/contact">contact</a></li>
+                    <li><a class="grey-text text-lighten-3" href="/page/index">Home</a></li>
+                    <li><a class="grey-text text-lighten-3" href="/page/features">Features</a></li>
+                    <li><a class="grey-text text-lighten-3" href="/page/contact">Contact</a></li>
                 </ul>
             </div>
         </div>

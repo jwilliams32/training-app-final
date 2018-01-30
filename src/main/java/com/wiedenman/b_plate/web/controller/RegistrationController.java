@@ -100,7 +100,7 @@ public class RegistrationController {
             verificationDao.save(vToken);
 
             // TODO: update this to https for production
-            final String appUrl = "http://" + request.getServerName() + ":" + request.getServerPort() + request.getContextPath();
+            final String appUrl = "https://" + request.getServerName() + ":" + request.getServerPort() + request.getContextPath();
 
             // Email message
             SimpleMailMessage passwordResetEmail = new SimpleMailMessage();
