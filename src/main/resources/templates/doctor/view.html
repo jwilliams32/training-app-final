@@ -35,6 +35,20 @@
             </tr>
         </table>
 
+        <H5>Tests</H5>
+
+        <!--<ul th:each="test : ${tests}
+        th:unless="${tests.size()}"-->
+        <ul th:each="test : ${tests}">
+            <a th:href="'../../test/view/' + ${test.id}">
+                <li th:text="${test.name}"></li>
+            </a>
+        </ul>
+
+        <p th:unless="${tests.size()}"><i>No tests yet</i></p>
+
+        <p><a th:href="'/doctor/add-test/' + ${doctorId}">Add Test</a></p>
+
 
     </div>
     <div class="small-gap"></div>

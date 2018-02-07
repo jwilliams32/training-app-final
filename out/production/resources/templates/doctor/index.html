@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+
+<body class="container">
+
+<h1 th:text="${title}">Default Title</h1>
+
+<nav th:replace="fragments :: navigation"></nav>
+
+<p th:unless="${doctors} and ${doctors.size()}">no doctors :(</p>
+
+
+<table class="table">
+
+    <tr>
+        <th>Name</th>
+        <th>Clinic</th>
+        <!--<th>Workup</th>-->
+    </tr>
+
+    <tr th:each="doctor : ${doctors}">
+        <td th:text="${doctor.name}"></td>
+        <td th:text="${doctor.clinic}"></td>
+        <!--<td th:text="${doctor.description}"></td>-->
+        <!--<td th:text="${cheese.category.name}"></td>-->
+        <td> <a th:href="@{'doctor/edit/' + ${doctor.id}}"> Edit </a><a th:href="@{'doctor/view/' + ${doctor.id}}">| View</a>
+        </td>
+
+    </tr>
+
+</table>
+
+<p> <a href="doctor/add">Add Doctor</a> | <a href="doctor/remove">Remove</a></p>
+
+
+
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+<body>
+<nav th:replace="fragments :: navigation"></nav>
+<main class="valign-wrapper">
+<div class="container">
+    <div class="row vert-center page-body" style="position: relative; top: -15px;">
+        <div class="col s12 m6 offset-m3">
+            <div class="card">
+                <div class="card-image" style="text-align: center; padding-top:50px;">
+                    <!--<img th:src="@{/assets/images/lighter.png}" alt="lighter with flame" id="login-image"/>-->
+                    <h4>LOGIN</h4>
+                </div>
+                <div class="card-content">
+                    <div th:replace="fragments :: flash"></div>
+                    <form th:action="@{/login}" th:object="${user}" method="post" class="login">
+                        <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
+                        <div class="row">
+                            <div class="col s12">
+                                <div class="input-field">
+                                    <label th:for="username">Username</label>
+                                    <input type="text" th:field="*{username}"/>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col s12">
+                                <div class="input-field">
+                                    <label th:for="password">Password</label>
+                                    <input th:type="password" th:field="*{password}"/>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col s12">
+                                <button type="submit" class="btn waves-effect">Login</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div style="text-align: center;">
+                <a th:href="'/register'"><span th:text="register"></span></a>
+                <span>   |   </span>
+                <a th:href="'/forgot'"><span th:text="'forgot password? '"></span></a>
+            </div>
+        </div>
+    </div>
+</div>
+</main>
+<footer th:replace="fragments :: footer"></footer>
+<div th:replace="fragments :: scripts"></div>
+</body>
+</html>
