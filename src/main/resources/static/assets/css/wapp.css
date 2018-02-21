@@ -1,0 +1,22 @@
+
+.card {
+
+
+float:left;
+margin: 10px;
+style: width:300px;
+}
+
+.wrap{
+    width: 100px;
+    margin: auto;
+    margin-top: 100px;
+}
+
+.card:hover{
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.6)
+}
+
+.container{
+    padding: 2px 16px;
+}

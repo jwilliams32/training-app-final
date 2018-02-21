@@ -5,15 +5,25 @@
     <meta charset="UTF-8"/>
     <meta description="viewport" content="width=device-width, initial-scale=1"/>
     <link rel="stylesheet" th:href="@{/assets/css/app.css}"/>
+    <link rel="stylesheet" href="https://rawgit.com/outboxcraft/beauter/master/beauter.min.css"/>
+    <link rel="stylesheet" th:href="@{../assets/css/wapp.css}"/>
     <script th:src="@{/assets/ckeditor/ckeditor.js}"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js"></script>
-    <title>b-plate</title>
+    <title>Ophthamology</title>
 </head>
 <body>
 <main>
     <nav th:replace="fragments :: navigation"></nav>
     <div class="small-gap"></div>
     <div class="container">
+
+        <div class="card" style="width:300px" th:each="doctor : ${doctors}">
+            <img src="http://beauter.outboxcraft.com/img/pink.jpg" class="_width100" height="100px" />
+            <div class="-content _alignCenter">
+                <strong th:text="*{clinic}"></strong>
+            </div>
+        </div>
+
         <!--<h1>Edit Test <span th:text="${doctor.name}"></span></h1>-->
         <!--<h4>Cheese Id : <span th:text="${cheeseId}"></span></h4>-->
         <table class="table">

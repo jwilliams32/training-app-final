@@ -10,6 +10,14 @@
 
 <p th:unless="${doctors} and ${doctors.size()}">no doctors :(</p>
 
+<div class="card" th:each="doctor : ${doctors}">
+    <img src="http://beauter.outboxcraft.com/img/pink.jpg" class="_width100" height="100px" />
+    <div class="-content _alignCenter">
+        <strong th:text="${doctor.name}"></strong>
+        <p th:text="${doctor.clinic}"></p>
+        <a th:href="@{'doctor/view/' + ${doctor.id}}"><button class="_small _yellow" th:text="${doctor.name}" ></button></a>
+    </div>
+</div>
 
 <table class="table">
 
