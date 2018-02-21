@@ -3,8 +3,11 @@ package com.williams.training_app.web.model;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class Doctor {
@@ -25,8 +28,14 @@ public class Doctor {
     @Size(min=1, message = "Please enter the work up for the doctor!")
     private String description;
 
+    @ManyToMany
+//            (targetEntity = Test.class, mappedBy = "doctor", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<Test> tests = new ArrayList<>();
+
+    public List<Test> getTests() { return tests; }
 
 
+    public Doctor(){}
 
     public Doctor(String name, String clinic, String description){
         this.name = name;
@@ -35,7 +44,7 @@ public class Doctor {
 
     }
 
-    public Doctor(){}
+    public void addItem(Test item){ tests.add(item); }
 
     public int getId() {
         return id;

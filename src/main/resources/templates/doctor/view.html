@@ -33,19 +33,37 @@
                 <td>Work Up:</td>
                 <td th:text="*{instruction}"></td>
             </tr>
+
         </table>
 
-        <H5>Tests</H5>
+        <!--<ul th:each="test : ${tests}">-->
+            <!--<a th:href="'../../test/view/' + ${test.id}">-->
+                <!--<li th:text="${test.name}"></li>-->
+            <!--</a>-->
+        <!--</ul>-->
+
+
+        <div>
+            <ul th:each="test : ${tests}">
+                <a th:href="'/test/view/' + ${test.id}">
+                    <li th:text="${test.name}"></li>
+                </a>
+            </ul>
+        </div>
+
 
         <!--<ul th:each="test : ${tests}
         th:unless="${tests.size()}"-->
-        <ul th:each="test : ${tests}">
-            <a th:href="'../../test/view/' + ${test.id}">
-                <li th:text="${test.name}"></li>
-            </a>
-        </ul>
 
-        <p th:unless="${tests.size()}"><i>No tests yet</i></p>
+
+        <!--<ul>-->
+            <!--<li th:each="test : ${tests}">-->
+                <!--<a th:href="'../../test/view/' + ${test.id}" th:text="test.name">-->
+                <!--</a>-->
+            <!--</li>-->
+        <!--</ul>-->
+
+        <!--<p  th:unless="${tests.size()}"><i>No tests yet</i></p>-->
 
         <p><a th:href="'/doctor/add-test/' + ${doctorId}">Add Test</a></p>
 

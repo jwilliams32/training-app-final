@@ -3,8 +3,10 @@ package com.williams.training_app.web.model;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.util.List;
 
 @Entity
 public class Test {
@@ -25,6 +27,10 @@ public class Test {
     @Size(min=1, message = "How is the test performed?")
     private String instruction;
 
+    @ManyToMany(mappedBy = "tests")
+//    have to have a joincolumn when having a many to one relationship
+//    @JoinColumn(name="doctor_id")
+    private List<Doctor> doctors;
 
     public Test(String name, String description, String instruction) {
         this.name = name;

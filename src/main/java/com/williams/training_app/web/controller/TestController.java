@@ -89,6 +89,7 @@ public class TestController {
     @RequestMapping(value = "test/view/{testId}", method = RequestMethod.GET)
     public String viewSingleTest(Model model, @PathVariable int testId){
         Test test = testDao.findOne(testId);
+//        model.addAttribute("tests", test);
         model.addAttribute("title", test.getName());
         model.addAttribute("description", test.getDescription());
         model.addAttribute("instruction", test.getInstruction());

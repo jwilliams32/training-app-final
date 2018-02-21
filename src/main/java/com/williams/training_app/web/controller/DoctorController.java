@@ -1,7 +1,10 @@
 package com.williams.training_app.web.controller;
 
+import com.williams.training_app.dao.TestDao;
+import com.williams.training_app.web.model.forms.AddTestItemForm;
 import com.williams.training_app.web.model.Doctor;
 import com.williams.training_app.dao.DoctorDao;
+import com.williams.training_app.web.model.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -18,6 +21,10 @@ public class DoctorController {
 
     @Autowired
     private DoctorDao doctorDao;
+
+    @Autowired
+    private TestDao testDao;
+
 
     @RequestMapping(value = "doctor")
     public String index(Model model) {
@@ -93,7 +100,35 @@ public class DoctorController {
         model.addAttribute("title", doctor.getName());
         model.addAttribute("clinic", doctor.getClinic());
         model.addAttribute("instruction", doctor.getDescription());
-
+        model.addAttribute("doctorId", doctor.getId());
+        model.addAttribute("tests",doctor.getTests());
         return "doctor/view";
+    }
+
+    @RequestMapping(value="doctor/add-test/{doctorId}")
+    public String addTest(Model model, @PathVariable int doctorId){
+
+        Doctor doctor = doctorDao.findOne(doctorId);
+        AddTestItemForm form = new AddTestItemForm(doctor, testDao.findAll());
+
+        model.addAttribute("title", "Add Test to Doctor:" + doctor.getName());
+        model.addAttribute("form", form );
+
+        return"doctor/add-test";
+    }
+    @RequestMapping(value="doctor/add-test" ,method=RequestMethod.POST)
+    public String addTestItemForm(Model model, @ModelAttribute @Valid AddTestItemForm form, Errors errors ){
+
+        if(errors.hasErrors()){
+            model.addAttribute("form",form);
+            return "/add-test";
+        }
+
+        Test theTest = testDao.findOne(form.getTestId());
+        Doctor theDoctor = doctorDao.findOne(form.getDoctorId());
+        theDoctor.addItem(theTest);
+        doctorDao.save(theDoctor);
+
+        return"redirect:/doctor/view/" + theDoctor.getId();
     }
 }

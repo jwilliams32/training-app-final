@@ -95,6 +95,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/test/add").hasRole("ADMIN")
                 .antMatchers("/doctor/edit").hasRole("ADMIN")
                 .antMatchers("/test/edit").hasRole("ADMIN")
+                .antMatchers("/doctor/add-test").hasRole("ADMIN")
+                .antMatchers("/add-test").hasRole("ADMIN")
+
+//                .antMatchers("/doctor/add-test/").hasRole("ADMIN")
+//                .antMatchers("/doctor/add-test/*").hasRole("ADMIN")
+//                .antMatchers("/doctor/add-test/{doctorId}").hasRole("ADMIN")
                 .antMatchers("/users").hasRole("ADMIN")
                 .antMatchers("/user/edit/*").hasRole("ADMIN")
                 .antMatchers("/user-enable").hasRole("ADMIN")
