@@ -18,5 +18,11 @@ style: width:300px;
 }
 
 .container{
-    padding: 2px 16px;
+
+}
+
+#content{
+    display:flex;
+    flex-wrap:wrap;
+
 }

@@ -17,10 +17,10 @@
     <div class="small-gap"></div>
     <div class="container">
 
-        <div class="card" style="width:300px" th:each="doctor : ${doctors}">
+        <div class="card" th:each="doctor : ${doctors}">
             <img src="http://beauter.outboxcraft.com/img/pink.jpg" class="_width100" height="100px" />
             <div class="-content _alignCenter">
-                <strong th:text="*{clinic}"></strong>
+                <strong th:text="*{title}"></strong>
             </div>
         </div>
 

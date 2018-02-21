@@ -4,9 +4,26 @@
 
 <body class="container">
 
+
+
 <h1 th:text="${title}">Default Title</h1>
 
 <nav th:replace="fragments :: navigation"></nav>
+
+
+<div id="content">
+    <div class="card" style="width:300px" th:each="test : ${tests}">
+        <img src="http://beauter.outboxcraft.com/img/pink.jpg" class="_width100" height="100px" />
+        <div class="-content _alignCenter">
+            <strong th:text="${test.name}"></strong>
+            <p th:text="${test.description}"></p>
+            <a th:href="@{'test/view/' + ${test.id}}"><button class="_small _yellow" th:text="${test.name}" ></button></a>
+        </div>
+    </div>
+
+
+</div>
+
 
 <p th:unless="${tests} and ${tests.size()}">no tests :(</p>
 
