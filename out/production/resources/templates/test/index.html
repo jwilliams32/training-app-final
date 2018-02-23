@@ -27,27 +27,9 @@
 
 <p th:unless="${tests} and ${tests.size()}">no tests :(</p>
 
-
-<table class="table">
-
-    <tr>
-        <th>Name</th>
-        <th>Description</th>
-        <!--<th>Instruction</th>-->
-    </tr>
-
-    <tr th:each="test : ${tests}">
-        <td th:text="${test.name}"></td>
-        <td th:text="${test.description}"></td>
-        <!--<td th:text="${test.instruction}"></td>-->
-        <!--<td th:text="${cheese.category.name}"></td>-->
-        <td> <a th:href="@{'test/edit/' + ${test.id}}"> Edit </a><a th:href="@{'test/view/' + ${test.id}}">| View</a></td>
-
-    </tr>
-
-</table>
 <!--<a th:href="@{'test/view/' + ${test.id}}"></a>-->
-<p><a href="test/add">Add Test</a> | <a href="test/remove">Remove</a></p>
+<buton><a href="test/add">Add Test</a>  </buton>
+<p>| <a href="test/remove">Remove</a></p>
 
 
 
