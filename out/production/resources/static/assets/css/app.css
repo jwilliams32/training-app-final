@@ -38,6 +38,7 @@ p {
 
 nav {
     line-height: 43px;
+    background-color: #003da5;
 }
 
 nav .brand-logo {
@@ -76,7 +77,9 @@ nav i, nav [class^="mdi-"], nav [class*="mdi-"], nav i.material-icons {
     font-weight: 200;
 }
 
-
+btn{
+    color:#003da5;
+}
 
 /* PAGE CONTAINERS */
 
@@ -169,10 +172,11 @@ input:not([type]), input[type="password"]:not(.browser-default) {
 
 footer.page-footer {
     margin: 0;
+    background-color: #003da5;
 }
 
 .footer-copyright {
-    background-color: #1d1c1c !important;
+    background-color: #black !important;
 }
 
 

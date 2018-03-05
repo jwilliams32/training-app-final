@@ -1,8 +1,5 @@
 
 .card {
-
-
-float:left;
 margin: 10px;
 style: width:300px;
 }
@@ -25,4 +22,22 @@ style: width:300px;
     display:flex;
     flex-wrap:wrap;
 
+}
+
+.btn blue {
+    color:#003da5;
+}
+
+a.btn {
+    color:#003da5;
+    text-color:white;
+}
+
+i.icon-white{
+    color:white
+}
+
+ul li a {
+    font-weight:bold;
+    font-size: 12px;
 }

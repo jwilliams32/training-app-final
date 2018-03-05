@@ -14,16 +14,38 @@
 <body>
 <main>
     <nav th:replace="fragments :: navigation"></nav>
-    <div class="small-gap"></div>
-    <div class="container">
+    <div th:replace="fragments :: flash"></div>
 
-        <div class="card" th:each="doctor : ${doctors}">
-            <img src="http://beauter.outboxcraft.com/img/pink.jpg" class="_width100" height="100px" />
-            <div class="-content _alignCenter">
-                <strong th:text="*{title}"></strong>
+    <div class="small-gap"></div>
+
+    <!--<div class="container">-->
+
+        <div id="content">
+            <div class="card" style="width:300px" th:each="doctor : ${doctors}">
+                <img src="http://beauter.outboxcraft.com/img/pink.jpg" class="_width100" height="100px" />
+                <div class="-content _alignCenter">
+                    <strong th:text="*{doctor.clinic}"></strong>
+                </div>
             </div>
         </div>
 
+
+        <div>
+            <div>
+                <button class="accordion _box _shadow _info">Clinic Description</button>
+                <div class="-panel">
+                    <p>Hello this is one more accordion. Very useful for creating process based or choice based stuff.</p><img src="/img/pink.jpg"/>
+                </div>
+                <button class="accordion _box _shadow _info">Work Up Instructions</button>
+                <div class="-panel" th:each="doctor : ${doctors}">
+                    <p th:text="*{clinic}">Hello this is one more accordion. Very useful for creating process based or choice based stuff.</p><img src="/img/pink.jpg"/>
+                </div>
+
+            </div>
+
+        </div>
+
+    <!--</div>-->
         <!--<h1>Edit Test <span th:text="${doctor.name}"></span></h1>-->
         <!--<h4>Cheese Id : <span th:text="${cheeseId}"></span></h4>-->
         <table class="table">
@@ -78,11 +100,12 @@
         <p><a th:href="'/doctor/add-test/' + ${doctorId}">Add Test</a></p>
 
 
-    </div>
+
     <div class="small-gap"></div>
 </main>
 <footer th:replace="fragments :: footer"></footer>
 <div th:replace="fragments :: scripts"></div>
+
 </body>
 </html>
 

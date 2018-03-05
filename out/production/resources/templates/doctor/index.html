@@ -12,7 +12,7 @@
 
 <div id="content">
     <div class="card" style="width:300px" th:each="doctor : ${doctors}">
-        <img src="http://beauter.outboxcraft.com/img/pink.jpg" class="_width100" height="100px" />
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSzO1D532X5LDmJ7LjYWAnVXDHUR7ngSNQZwZUdFB37jz7hvogg5Q" class="_width100" height="100px" />
         <div class="-content _alignCenter">
             <strong th:text="${doctor.name}"></strong>
             <p th:text="${doctor.clinic}"></p>
@@ -22,6 +22,7 @@
 
 
 </div>
+
 
 <table class="table">
 
@@ -42,10 +43,17 @@
     </tr>
 
 </table>
+<div class="row">
+    <div class="col s12">
+        <a href="doctor/add"> <button type="button" class="btn blue darken-4">Add Doctor</button></a>  <a href="doctor/remove"><button type="button" class="btn blue darken-4">Remove Doctor</button></a>
+    </div>
+</div>
+
 
 <p> <a href="doctor/add">Add Doctor</a> | <a href="doctor/remove">Remove</a></p>
+<button type="submit" class="btn blue darken-4" formaction="doctor/remove"> Remove Me</button>
 
-
-
+<div th:replace="fragments :: footer"></div>
+<div th:replace="fragments :: scripts"></div>
 </body>
 </html>
