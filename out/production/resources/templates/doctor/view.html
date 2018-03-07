@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
-<!--<head th:replace="fragments :: head"></head>-->
+<head th:replace="fragments :: head"></head>
 <head lang="en">
     <meta charset="UTF-8"/>
     <meta description="viewport" content="width=device-width, initial-scale=1"/>
@@ -11,23 +11,33 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js"></script>
     <title>Ophthamology</title>
 </head>
-<body>
+<body class="container">
 <main>
     <nav th:replace="fragments :: navigation"></nav>
-    <div th:replace="fragments :: flash"></div>
+    <!--<div th:replace="fragments :: flash"></div>-->
 
     <div class="small-gap"></div>
 
     <!--<div class="container">-->
-
-        <div id="content">
-            <div class="card" style="width:300px" th:each="doctor : ${doctors}">
-                <img src="http://beauter.outboxcraft.com/img/pink.jpg" class="_width100" height="100px" />
-                <div class="-content _alignCenter">
-                    <strong th:text="*{doctor.clinic}"></strong>
-                </div>
+    <div>
+        <div class="card" style="width:300px">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSzO1D532X5LDmJ7LjYWAnVXDHUR7ngSNQZwZUdFB37jz7hvogg5Q" class="_width100" height="100px" />
+            <div class="-content _alignCenter">
+                <p>Hi</p>
             </div>
         </div>
+    </div>
+
+
+    <div th:each="doctor : ${doctors}">
+            <div class="card" style="width:300px">
+                <img src="http://beauter.outboxcraft.com/img/pink.jpg" class="_width100" height="100px" />
+                <div class="-content _alignCenter">
+                    <p th:text="*{instruction}"></p>
+                    <strong>Ballet</strong>
+                </div>
+            </div>
+    </div>
 
 
         <div>

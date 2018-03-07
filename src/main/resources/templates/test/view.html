@@ -11,8 +11,60 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js"></script>
     <title>b-plate</title>
 </head>
-<body>
+<body class="container">
 <main>
+
+    <nav th:replace="fragments :: navigation"></nav>
+
+    <div class="card">
+        <h2 th:text="*{title}" class="_alignCenter"></h2>
+        <img src="http://beauter.outboxcraft.com/img/pink.jpg" class="_width100" height="50px" />
+
+
+    </div>
+
+
+
+    <div>
+
+
+        <h2>Description</h2>
+        <p th:text="*{description}"></p>
+        <h3>Instructions</h3>
+        <div>
+            <p th:text="*{instruction}"></p>
+
+        </div>
+
+    </div>
+
+
+    <div>
+        <button class="accordion _box _shadow _dark">Test Description</button>
+        <div class="-panel">
+            <p th:text="*{description}"></p>
+        </div>
+    </div>
+
+    <div>
+        <button class="accordion _box _shadow _nightblue">Instructions</button>
+        <div class="-panel">
+            <p th:text="*{instruction}"></p>
+        </div>
+    </div>
+    <div>
+        <button class="accordion _box _shadow _indigo">Instructions</button>
+        <div class="-panel">
+            <p th:text="*{instruction}"></p>
+        </div>
+    </div>
+    <div>
+        <button class="accordion _box _shadow _black">Instructions</button>
+        <div class="-panel">
+            <p th:text="*{instruction}"></p>
+        </div>
+    </div>
+
 
     <div class="card" style="width:300px" th:each="test : ${tests}">
         <img src="http://beauter.outboxcraft.com/img/pink.jpg" class="_width100" height="100px" />
@@ -22,9 +74,6 @@
             <a th:href="@{'test/view/' + ${test.id}}"><button class="_small _yellow" th:text="${test.name}" ></button></a>
         </div>
     </div>
-
-
-    <nav th:replace="fragments :: navigation"></nav>
     <div class="small-gap"></div>
     <div class="container">
         <!--<h1>Edit Test <span th:text="${doctor.name}"></span></h1>-->

@@ -4,7 +4,7 @@
 
 <body class="container">
 
-<h1 th:text="${title}">Default Title</h1>
+<!--<h1 th:text="${title}">Default Title</h1>-->
 
 <nav th:replace="fragments :: navigation"></nav>
 
@@ -49,9 +49,6 @@
     </div>
 </div>
 
-
-<p> <a href="doctor/add">Add Doctor</a> | <a href="doctor/remove">Remove</a></p>
-<button type="submit" class="btn blue darken-4" formaction="doctor/remove"> Remove Me</button>
 
 <div th:replace="fragments :: footer"></div>
 <div th:replace="fragments :: scripts"></div>
