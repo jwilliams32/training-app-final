@@ -17,6 +17,8 @@
             <strong th:text="${doctor.name}"></strong>
             <p th:text="${doctor.clinic}"></p>
             <a th:href="@{'doctor/view/' + ${doctor.id}}"><button class="_small _yellow" th:text="${doctor.name}" ></button></a>
+            <a th:href="@{'doctor/edit/' + ${doctor.id}}"><button class="_small _red" >Edit</button></a>
+
         </div>
     </div>
 
