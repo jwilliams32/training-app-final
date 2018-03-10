@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
-<!--<head th:replace="fragments :: head"></head>-->
+<head th:replace="fragments :: head"></head>
 <head lang="en">
     <meta charset="UTF-8"/>
     <meta description="viewport" content="width=device-width, initial-scale=1"/>
@@ -9,34 +9,31 @@
     <link rel="stylesheet" th:href="@{../assets/css/wapp.css}"/>
     <script th:src="@{/assets/ckeditor/ckeditor.js}"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js"></script>
-    <title>b-plate</title>
+    <!--<title>b-plate</title>-->
 </head>
-<body class="container">
-<main>
+<body>
+
 
     <nav th:replace="fragments :: navigation"></nav>
 
     <div class="card">
+        <img src="http://beauter.outboxcraft.com/img/pink.jpg" class="_width100 -thumb" height="50px" />
         <h2 th:text="*{title}" class="_alignCenter"></h2>
-        <img src="http://beauter.outboxcraft.com/img/pink.jpg" class="_width100" height="50px" />
-
-
     </div>
 
 
 
-    <div>
+    <!--<div>-->
+        <!---->
+        <!--<h2>Description</h2>-->
+        <!--<p th:text="*{description}"></p>-->
+        <!--<h3>Instructions</h3>-->
+        <!--<div>-->
+            <!--<p th:text="*{instruction}"></p>-->
 
+        <!--</div>-->
 
-        <h2>Description</h2>
-        <p th:text="*{description}"></p>
-        <h3>Instructions</h3>
-        <div>
-            <p th:text="*{instruction}"></p>
-
-        </div>
-
-    </div>
+    <!--</div>-->
 
 
     <div>
@@ -47,23 +44,23 @@
     </div>
 
     <div>
-        <button class="accordion _box _shadow _nightblue">Instructions</button>
+        <button class="accordion _box _shadow _dark">Instructions</button>
         <div class="-panel">
             <p th:text="*{instruction}"></p>
         </div>
     </div>
-    <div>
-        <button class="accordion _box _shadow _indigo">Instructions</button>
-        <div class="-panel">
-            <p th:text="*{instruction}"></p>
-        </div>
-    </div>
-    <div>
-        <button class="accordion _box _shadow _black">Instructions</button>
-        <div class="-panel">
-            <p th:text="*{instruction}"></p>
-        </div>
-    </div>
+    <!--<div>-->
+        <!--<button class="accordion _box _shadow _indigo">Instructions</button>-->
+        <!--<div class="-panel">-->
+            <!--<p th:text="*{instruction}"></p>-->
+        <!--</div>-->
+    <!--</div>-->
+    <!--<div>-->
+        <!--<button class="accordion _box _shadow _black">Instructions</button>-->
+        <!--<div class="-panel">-->
+            <!--<p th:text="*{instruction}"></p>-->
+        <!--</div>-->
+    <!--</div>-->
 
 
     <div class="card" style="width:300px" th:each="test : ${tests}">
@@ -75,30 +72,30 @@
         </div>
     </div>
     <div class="small-gap"></div>
-    <div class="container">
-        <!--<h1>Edit Test <span th:text="${doctor.name}"></span></h1>-->
-        <!--<h4>Cheese Id : <span th:text="${cheeseId}"></span></h4>-->
-        <table class="table">
-            <tr th:each="test : ${tests}">
-            </tr>
-            <tr>
-                <td>Test:</td>
-                <td th:text="*{title}"></td>
-            </tr>
-            <tr>
-                <td>Description :</td>
-                <td th:text="*{description}"></td>
-            </tr>
-            <tr>
-                <td>Instructions:</td>
-                <td th:text="*{instruction}"></td>
-            </tr>
-        </table>
+    <!--<div class="container">-->
+        <!--&lt;!&ndash;<h1>Edit Test <span th:text="${doctor.name}"></span></h1>&ndash;&gt;-->
+        <!--&lt;!&ndash;<h4>Cheese Id : <span th:text="${cheeseId}"></span></h4>&ndash;&gt;-->
+        <!--<table class="table">-->
+            <!--<tr th:each="test : ${tests}">-->
+            <!--</tr>-->
+            <!--<tr>-->
+                <!--<td>Test:</td>-->
+                <!--<td th:text="*{title}"></td>-->
+            <!--</tr>-->
+            <!--<tr>-->
+                <!--<td>Description :</td>-->
+                <!--<td th:text="*{description}"></td>-->
+            <!--</tr>-->
+            <!--<tr>-->
+                <!--<td>Instructions:</td>-->
+                <!--<td th:text="*{instruction}"></td>-->
+            <!--</tr>-->
+        <!--</table>-->
 
 
-    </div>
+    <!--</div>-->
     <div class="small-gap"></div>
-</main>
+
 
 <footer th:replace="fragments :: footer"></footer>
 <div th:replace="fragments :: scripts"></div>

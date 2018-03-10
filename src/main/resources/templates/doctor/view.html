@@ -11,72 +11,85 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js"></script>
     <title>Ophthamology</title>
 </head>
-<body class="container">
-<main>
+<body>
+
     <nav th:replace="fragments :: navigation"></nav>
     <!--<div th:replace="fragments :: flash"></div>-->
 
-    <div class="small-gap"></div>
+    <!--<div class="small-gap"></div>-->
+    <div class="container _alignCenter">
+        <div class="card" style="width:200px">
+
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSzO1D532X5LDmJ7LjYWAnVXDHUR7ngSNQZwZUdFB37jz7hvogg5Q" class="-thumb _alignCenter" height="50px" />
+            <h3 th:text="*{title}" class="_alignCenter"></h3>
+        </div>
+    </div>
 
     <!--<div class="container">-->
+
+        <!--<div>-->
+            <!--<div>-->
+                <!--<button class="accordion _box _shadow _info">Clinic Description</button>-->
+                <!--<div class="-panel">-->
+                    <!--<p>Hello this is one more accordion. Very useful for creating process based or choice based stuff.</p><img src="/img/pink.jpg"/>-->
+                <!--</div>-->
+                <!--<button class="accordion _box _shadow _info">Work Up Instructions</button>-->
+                <!--<div class="-panel" th:each="doctor : ${doctors}">-->
+                    <!--<p th:text="*{clinic}">Hello this is one more accordion. Very useful for creating process based or choice based stuff.</p><img src="/img/pink.jpg"/>-->
+                <!--</div>-->
+
+            <!--</div>-->
+
+        <!--</div>-->
+
     <div>
-        <div class="card" style="width:300px">
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSzO1D532X5LDmJ7LjYWAnVXDHUR7ngSNQZwZUdFB37jz7hvogg5Q" class="_width100" height="100px" />
-            <div class="-content _alignCenter">
-                <p>Hi</p>
-            </div>
+        <button class="accordion _box _shadow _dark">Test Description</button>
+        <div class="-panel">
+            <p th:text="*{clinic}"></p>
         </div>
     </div>
 
-
-    <div th:each="doctor : ${doctors}">
-            <div class="card" style="width:300px">
-                <img src="http://beauter.outboxcraft.com/img/pink.jpg" class="_width100" height="100px" />
-                <div class="-content _alignCenter">
-                    <p th:text="*{instruction}"></p>
-                    <strong>Ballet</strong>
-                </div>
-            </div>
+    <div>
+        <button class="accordion _box _shadow _dark">Instructions</button>
+        <div class="-panel">
+            <p th:text="*{instruction}"></p>
+        </div>
     </div>
-
-
-        <div>
+    <div>
+        <button class="accordion _box _shadow _dark">Test</button>
+        <div class="-panel">
             <div>
-                <button class="accordion _box _shadow _info">Clinic Description</button>
-                <div class="-panel">
-                    <p>Hello this is one more accordion. Very useful for creating process based or choice based stuff.</p><img src="/img/pink.jpg"/>
-                </div>
-                <button class="accordion _box _shadow _info">Work Up Instructions</button>
-                <div class="-panel" th:each="doctor : ${doctors}">
-                    <p th:text="*{clinic}">Hello this is one more accordion. Very useful for creating process based or choice based stuff.</p><img src="/img/pink.jpg"/>
-                </div>
-
+                <ul th:each="test : ${tests}">
+                    <a th:href="'/test/view/' + ${test.id}">
+                        <li th:text="${test.name}"></li>
+                    </a>
+                </ul>
             </div>
-
         </div>
+    </div>
 
     <!--</div>-->
         <!--<h1>Edit Test <span th:text="${doctor.name}"></span></h1>-->
         <!--<h4>Cheese Id : <span th:text="${cheeseId}"></span></h4>-->
-        <table class="table">
-            <tr th:each="doctor : ${doctors}">
+        <!--<table class="table">-->
+            <!--<tr th:each="doctor : ${doctors}">-->
                 <!--<td>Name :</td>-->
                 <!--<td th:text="*{title}"></td>-->
-            </tr>
-            <tr>
-                <td>Doctor: </td>
-                <td th:text="*{title}"></td>
-            </tr>
-            <tr>
-                <td>Clinic :</td>
-                <td th:text="*{clinic}"></td>
-            </tr>
-            <tr>
-                <td>Work Up:</td>
-                <td th:text="*{instruction}"></td>
-            </tr>
+            <!--</tr>-->
+            <!--<tr>-->
+                <!--<td>Doctor: </td>-->
+                <!--<td th:text="*{title}"></td>-->
+            <!--</tr>-->
+            <!--<tr>-->
+                <!--<td>Clinic :</td>-->
+                <!--<td th:text="*{clinic}"></td>-->
+            <!--</tr>-->
+            <!--<tr>-->
+                <!--<td>Work Up:</td>-->
+                <!--<td th:text="*{instruction}"></td>-->
+            <!--</tr>-->
 
-        </table>
+        <!--</table>-->
 
         <!--<ul th:each="test : ${tests}">-->
             <!--<a th:href="'../../test/view/' + ${test.id}">-->
@@ -85,13 +98,13 @@
         <!--</ul>-->
 
 
-        <div>
-            <ul th:each="test : ${tests}">
-                <a th:href="'/test/view/' + ${test.id}">
-                    <li th:text="${test.name}"></li>
-                </a>
-            </ul>
-        </div>
+        <!--<div>-->
+            <!--<ul th:each="test : ${tests}">-->
+                <!--<a th:href="'/test/view/' + ${test.id}">-->
+                    <!--<li th:text="${test.name}"></li>-->
+                <!--</a>-->
+            <!--</ul>-->
+        <!--</div>-->
 
 
         <!--<ul th:each="test : ${tests}
@@ -107,12 +120,13 @@
 
         <!--<p  th:unless="${tests.size()}"><i>No tests yet</i></p>-->
 
-        <p><a th:href="'/doctor/add-test/' + ${doctorId}">Add Test</a></p>
-
-
-
+        <!--<p><a th:href="'/doctor/add-test/' + ${doctorId}">Add Test</a></p>-->
+    <div class="row">
+        <div class="col s12">
+            <a href="'doctor/add-test/' + ${doctorId}"> <button type="button" class="btn blue darken-4">Add Test</button></a>  <a href="test/remove"><button type="button" class="btn blue darken-4">Remove Test</button></a>
+        </div>
+    </div>
     <div class="small-gap"></div>
-</main>
 <footer th:replace="fragments :: footer"></footer>
 <div th:replace="fragments :: scripts"></div>
 

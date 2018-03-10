@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
 <head th:replace="fragments :: head"></head>
 
-<body class="container">
+<body>
 
 <!--<h1 th:text="${title}">Default Title</h1>-->
 
@@ -16,8 +16,8 @@
         <div class="-content _alignCenter">
             <strong th:text="${doctor.name}"></strong>
             <p th:text="${doctor.clinic}"></p>
-            <a th:href="@{'doctor/view/' + ${doctor.id}}"><button class="_small _yellow" th:text="${doctor.name}" ></button></a>
-            <a th:href="@{'doctor/edit/' + ${doctor.id}}"><button class="_small _red" >Edit</button></a>
+            <a th:href="@{'doctor/view/' + ${doctor.id}}"><button class="_small _info" th:text="${doctor.name}" ></button></a>
+            <a th:href="@{'doctor/edit/' + ${doctor.id}}"><button class="_small _danger" >Edit</button></a>
 
         </div>
     </div>
@@ -26,25 +26,25 @@
 </div>
 
 
-<table class="table">
+<!--<table class="table">-->
 
-    <tr>
-        <th>Name</th>
-        <th>Clinic</th>
-        <!--<th>Workup</th>-->
-    </tr>
+    <!--<tr>-->
+        <!--<th>Name</th>-->
+        <!--<th>Clinic</th>-->
+        <!--&lt;!&ndash;<th>Workup</th>&ndash;&gt;-->
+    <!--</tr>-->
 
-    <tr th:each="doctor : ${doctors}">
-        <td th:text="${doctor.name}"></td>
-        <td th:text="${doctor.clinic}"></td>
-        <!--<td th:text="${doctor.description}"></td>-->
-        <!--<td th:text="${cheese.category.name}"></td>-->
-        <td> <a th:href="@{'doctor/edit/' + ${doctor.id}}"> Edit </a><a th:href="@{'doctor/view/' + ${doctor.id}}">| View</a>
-        </td>
+    <!--<tr th:each="doctor : ${doctors}">-->
+        <!--<td th:text="${doctor.name}"></td>-->
+        <!--<td th:text="${doctor.clinic}"></td>-->
+        <!--&lt;!&ndash;<td th:text="${doctor.description}"></td>&ndash;&gt;-->
+        <!--&lt;!&ndash;<td th:text="${cheese.category.name}"></td>&ndash;&gt;-->
+        <!--<td> <a th:href="@{'doctor/edit/' + ${doctor.id}}"> Edit </a><a th:href="@{'doctor/view/' + ${doctor.id}}">| View</a>-->
+        <!--</td>-->
 
-    </tr>
+    <!--</tr>-->
 
-</table>
+<!--</table>-->
 <div class="row">
     <div class="col s12">
         <a href="doctor/add"> <button type="button" class="btn blue darken-4">Add Doctor</button></a>  <a href="doctor/remove"><button type="button" class="btn blue darken-4">Remove Doctor</button></a>
