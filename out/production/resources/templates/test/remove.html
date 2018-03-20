@@ -1,23 +1,28 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
 <head th:replace="fragments :: head"></head>
-<body class="container">
+<body>
+<main>
+    <!--<h1 th:text="${title}">Default Title</h1>-->
+    <nav th:replace="fragments :: navigation"></nav>
+    <div class="container">
+        <form method="post">
 
-<h1 th:text="${title}">Default Title</h1>
+            <div th:each="test : ${tests}" class="checkbox">
+                <input type="checkbox" name="testIds" th:value="${test.id}" th:id="${test.id}"/>
+                <label th:for="${test.id}" th:text="${test.name}"></label>
+                <br />
+            </div>
 
-<nav th:replace="fragments :: navigation"></nav>
-
-<form method="post">
-
-    <div th:each="test : ${tests}" class="checkbox">
-        <input type="checkbox" name="testIds" th:value="${test.id}" th:id="${test.id}"/>
-        <label th:for="${test.id}" th:text="${test.name}"></label>
-        <br />
+            <input type="submit" value="Remove Test" />
+        </form>
     </div>
 
-    <input type="submit" value="Remove Test" />
-</form>
-<div th:replace="fragments :: footer"></div>
-<div th:replace="fragments :: scripts"></div>
+
+    <footer th:replace="fragments :: footer"></footer>
+    <div th:replace="fragments :: scripts"></div>
+
+</main>
+
 </body>
 </html>
