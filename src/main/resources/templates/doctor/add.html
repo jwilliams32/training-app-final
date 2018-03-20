@@ -7,34 +7,37 @@
 <nav th:replace="fragments :: navigation"></nav>
 
 <!--in order for form to post there has to be an action in place ex th:action="@{/doctor/add}"-->
-<form method="post" style="max-width:600px;" th:object="${doctor}" th:action="@{/doctor/add}">
-    <!--<input type="hidden" name="id" th:value="*{id}"/>-->
+<div class="container">
+    <form method="post" style="max-width:600px;" th:object="${doctor}" th:action="@{/doctor/add}">
+        <!--<input type="hidden" name="id" th:value="*{id}"/>-->
 
-    <div class="form-group">
-        <label th:for="name">Name</label>
-        <input class="form-control" th:field="*{name}" />
-        <span th:errors="*{name}" class="error"></span>
-    </div>
+        <div class="form-group">
+            <label th:for="name">Name</label>
+            <input class="form-control" th:field="*{name}" />
+            <span th:errors="*{name}" class="error"></span>
+        </div>
 
-    <div class="form-group">
-        <label th:for="clinic">Clinic</label>
-        <input class="form-control" th:field="*{clinic}" />
-        <span th:errors="*{clinic}" class="error"></span>
-    </div>
+        <div class="form-group">
+            <label th:for="clinic">Clinic</label>
+            <input class="form-control" th:field="*{clinic}" />
+            <span th:errors="*{clinic}" class="error"></span>
+        </div>
 
-    <!--<div class="form-group">-->
+        <!--<div class="form-group">-->
         <!--<label th:for="description">Description</label>-->
         <!--<input class="form-control" th:field="*{description}" />-->
         <!--<span th:errors="*{description}" class="error"></span>-->
-    <!--</div>-->
+        <!--</div>-->
 
-    <div class="form-group">
-        <label th:for="description">Work Up:</label>
-        <textarea class="form-control" rows="5" id="descripiton" th:field="*{description}"></textarea>
-    </div>
+        <div class="form-group">
+            <label th:for="description">Work Up:</label>
+            <textarea class="form-control" rows="5" id="descripiton" th:field="*{description}"></textarea>
+        </div>
 
-    <input type="submit" value="Add Doctor" />
-</form>
+        <input type="submit" value="Add Doctor" />
+    </form>
+
+</div>
 
 
 <div th:replace="fragments :: footer"></div>
