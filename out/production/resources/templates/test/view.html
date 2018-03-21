@@ -1,19 +1,18 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
-<head th:replace="fragments :: head"></head>
+<!--<head th:replace="fragments :: head"></head>-->
 <head lang="en">
     <meta charset="UTF-8"/>
     <meta description="viewport" content="width=device-width, initial-scale=1"/>
-    <link rel="stylesheet" th:href="@{/assets/css/app.css}"/>
-    <link rel="stylesheet" href="https://rawgit.com/outboxcraft/beauter/master/beauter.min.css"/>
-    <link rel="stylesheet" th:href="@{../assets/css/wapp.css}"/>
+    <link rel="stylesheet" th:href="@{/assets/css/app.css}"/>    <link rel="shortcut icon" href="http://static1.squarespace.com/static/560351b3e4b07ebf58d7494f/t/592cb5fa6a4963289421f421/1496102394637/Bert+Gilbert_favicon_eye_200x200.jpg?format=1000w" type="image/x-icon"/>
+    <link rel="shortcut icon" href="http://static1.squarespace.com/static/560351b3e4b07ebf58d7494f/t/592cb5fa6a4963289421f421/1496102394637/Bert+Gilbert_favicon_eye_200x200.jpg?format=1000w" type="image/x-icon"/>
+    <!--<link rel="stylesheet" th:href="@{../assets/css/wapp.css}"/>-->
     <script th:src="@{/assets/ckeditor/ckeditor.js}"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js"></script>
-    <!--<title>b-plate</title>-->
+    <title>Ophthalmology</title>
 </head>
 <body>
-
-
+<main>
     <nav th:replace="fragments :: navigation"></nav>
 
     <div class="card">
@@ -24,14 +23,14 @@
 
 
     <!--<div>-->
-        <!---->
-        <!--<h2>Description</h2>-->
-        <!--<p th:text="*{description}"></p>-->
-        <!--<h3>Instructions</h3>-->
-        <!--<div>-->
-            <!--<p th:text="*{instruction}"></p>-->
+    <!---->
+    <!--<h2>Description</h2>-->
+    <!--<p th:text="*{description}"></p>-->
+    <!--<h3>Instructions</h3>-->
+    <!--<div>-->
+    <!--<p th:text="*{instruction}"></p>-->
 
-        <!--</div>-->
+    <!--</div>-->
 
     <!--</div>-->
 
@@ -50,16 +49,16 @@
         </div>
     </div>
     <!--<div>-->
-        <!--<button class="accordion _box _shadow _indigo">Instructions</button>-->
-        <!--<div class="-panel">-->
-            <!--<p th:text="*{instruction}"></p>-->
-        <!--</div>-->
+    <!--<button class="accordion _box _shadow _indigo">Instructions</button>-->
+    <!--<div class="-panel">-->
+    <!--<p th:text="*{instruction}"></p>-->
+    <!--</div>-->
     <!--</div>-->
     <!--<div>-->
-        <!--<button class="accordion _box _shadow _black">Instructions</button>-->
-        <!--<div class="-panel">-->
-            <!--<p th:text="*{instruction}"></p>-->
-        <!--</div>-->
+    <!--<button class="accordion _box _shadow _black">Instructions</button>-->
+    <!--<div class="-panel">-->
+    <!--<p th:text="*{instruction}"></p>-->
+    <!--</div>-->
     <!--</div>-->
 
 
@@ -73,28 +72,32 @@
     </div>
     <div class="small-gap"></div>
     <!--<div class="container">-->
-        <!--&lt;!&ndash;<h1>Edit Test <span th:text="${doctor.name}"></span></h1>&ndash;&gt;-->
-        <!--&lt;!&ndash;<h4>Cheese Id : <span th:text="${cheeseId}"></span></h4>&ndash;&gt;-->
-        <!--<table class="table">-->
-            <!--<tr th:each="test : ${tests}">-->
-            <!--</tr>-->
-            <!--<tr>-->
-                <!--<td>Test:</td>-->
-                <!--<td th:text="*{title}"></td>-->
-            <!--</tr>-->
-            <!--<tr>-->
-                <!--<td>Description :</td>-->
-                <!--<td th:text="*{description}"></td>-->
-            <!--</tr>-->
-            <!--<tr>-->
-                <!--<td>Instructions:</td>-->
-                <!--<td th:text="*{instruction}"></td>-->
-            <!--</tr>-->
-        <!--</table>-->
+    <!--&lt;!&ndash;<h1>Edit Test <span th:text="${doctor.name}"></span></h1>&ndash;&gt;-->
+    <!--&lt;!&ndash;<h4>Cheese Id : <span th:text="${cheeseId}"></span></h4>&ndash;&gt;-->
+    <!--<table class="table">-->
+    <!--<tr th:each="test : ${tests}">-->
+    <!--</tr>-->
+    <!--<tr>-->
+    <!--<td>Test:</td>-->
+    <!--<td th:text="*{title}"></td>-->
+    <!--</tr>-->
+    <!--<tr>-->
+    <!--<td>Description :</td>-->
+    <!--<td th:text="*{description}"></td>-->
+    <!--</tr>-->
+    <!--<tr>-->
+    <!--<td>Instructions:</td>-->
+    <!--<td th:text="*{instruction}"></td>-->
+    <!--</tr>-->
+    <!--</table>-->
 
 
     <!--</div>-->
     <div class="small-gap"></div>
+
+</main>
+
+
 
 
 <footer th:replace="fragments :: footer"></footer>

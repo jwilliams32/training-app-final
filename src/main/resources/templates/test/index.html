@@ -1,40 +1,52 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
-<head th:replace="fragments :: head"></head>
-
+<!--<head th:replace="fragments :: head"></head>-->
+<head lang="en">
+    <meta charset="UTF-8"/>
+    <meta description="viewport" content="width=device-width, initial-scale=1"/>
+    <link rel="stylesheet" th:href="@{/assets/css/app.css}"/>    <link rel="shortcut icon" href="http://static1.squarespace.com/static/560351b3e4b07ebf58d7494f/t/592cb5fa6a4963289421f421/1496102394637/Bert+Gilbert_favicon_eye_200x200.jpg?format=1000w" type="image/x-icon"/>
+    <link rel="shortcut icon" href="http://static1.squarespace.com/static/560351b3e4b07ebf58d7494f/t/592cb5fa6a4963289421f421/1496102394637/Bert+Gilbert_favicon_eye_200x200.jpg?format=1000w" type="image/x-icon"/>
+    <!--<link rel="stylesheet" th:href="@{../assets/css/wapp.css}"/>-->
+    <script th:src="@{/assets/ckeditor/ckeditor.js}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js"></script>
+    <title>Ophthalmology</title>
+</head>
 <body>
 
+<main>
+
+    <nav th:replace="fragments :: navigation"></nav>
 
 
-<!--<h1 th:text="${title}">Default Title</h1>-->
+    <div id="content">
+        <div class="card" style="width:300px" th:each="test : ${tests}">
+            <img src="http://beauter.outboxcraft.com/img/pink.jpg" class="_width100" height="100px" />
+            <div class="-content _alignCenter">
+                <strong th:text="${test.name}"></strong>
+                <p th:text="${test.description}"></p>
+                <a th:href="@{'test/view/' + ${test.id}}"><button class="_small _yellow" th:text="${test.name}" ></button></a>
+                <a th:href="@{'test/edit/' + ${test.id}}"><button class="_small _danger" >Edit</button></a>
 
-<nav th:replace="fragments :: navigation"></nav>
+            </div>
+        </div>
 
 
-<div id="content">
-    <div class="card" style="width:300px" th:each="test : ${tests}">
-        <img src="http://beauter.outboxcraft.com/img/pink.jpg" class="_width100" height="100px" />
-        <div class="-content _alignCenter">
-            <strong th:text="${test.name}"></strong>
-            <p th:text="${test.description}"></p>
-            <a th:href="@{'test/view/' + ${test.id}}"><button class="_small _yellow" th:text="${test.name}" ></button></a>
-            <a th:href="@{'test/edit/' + ${test.id}}"><button class="_small _danger" >Edit</button></a>
+    </div>
 
+
+    <p th:unless="${tests} and ${tests.size()}">no tests :(</p>
+
+    <!--<a th:href="@{'test/view/' + ${test.id}}"></a>-->
+    <div class="row">
+        <div class="col s12">
+            <a href="test/add"> <button type="button" class="btn blue darken-4">Add Test</button></a>  <a href="test/remove"><button type="button" class="btn blue darken-4">Remove Test</button></a>
         </div>
     </div>
 
+</main>
 
-</div>
+<!--<h1 th:text="${title}">Default Title</h1>-->
 
-
-<p th:unless="${tests} and ${tests.size()}">no tests :(</p>
-
-<!--<a th:href="@{'test/view/' + ${test.id}}"></a>-->
-<div class="row">
-    <div class="col s12">
-        <a href="test/add"> <button type="button" class="btn blue darken-4">Add Test</button></a>  <a href="test/remove"><button type="button" class="btn blue darken-4">Remove Test</button></a>
-    </div>
-</div>
 
 <div th:replace="fragments :: footer"></div>
 <div th:replace="fragments :: scripts"></div>

@@ -1,41 +1,57 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
-<head th:replace="fragments :: head"></head>
+<!--<head th:replace="fragments :: head"></head>-->
+<head lang="en">
+    <meta charset="UTF-8"/>
+    <meta description="viewport" content="width=device-width, initial-scale=1"/>
+    <link rel="stylesheet" th:href="@{/assets/css/app.css}"/>    <link rel="shortcut icon" href="http://static1.squarespace.com/static/560351b3e4b07ebf58d7494f/t/592cb5fa6a4963289421f421/1496102394637/Bert+Gilbert_favicon_eye_200x200.jpg?format=1000w" type="image/x-icon"/>
+    <link rel="shortcut icon" href="http://static1.squarespace.com/static/560351b3e4b07ebf58d7494f/t/592cb5fa6a4963289421f421/1496102394637/Bert+Gilbert_favicon_eye_200x200.jpg?format=1000w" type="image/x-icon"/>
+    <!--<link rel="stylesheet" th:href="@{../assets/css/wapp.css}"/>-->
+    <script th:src="@{/assets/ckeditor/ckeditor.js}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js"></script>
+    <title>Ophthalmology</title>
+</head>
 <body>
 <!--<h1 th:text="${title}">Default Title</h1>-->
+<main>
+    <nav th:replace="fragments :: navigation"></nav>
+    <div class="small-gap"></div>
 
-<nav th:replace="fragments :: navigation"></nav>
-<!--action has to be in place in order for the form to post to the page-->
-<div class="container">
-    <form method="post" style="max-width:600px;" th:object="${test}" th:action="@{/test/add/}">
-        <div class="form-group">
-            <label th:for="name">Test Name</label>
-            <input class="form-control" th:field="*{name}" placeholder="Humphrey Visual Field" autofocus="input"/>
-            <span th:errors="*{name}" class="error"></span>
-        </div>
+    <!--action has to be in place in order for the form to post to the page-->
+    <div class="container">
+        <form method="post" style="max-width:600px;" th:object="${test}" th:action="@{/test/add/}">
+            <div class="form-group">
+                <label th:for="name">Test Name</label>
+                <input class="form-control" th:field="*{name}" placeholder="Humphrey Visual Field" autofocus="input"/>
+                <span th:errors="*{name}" class="error"></span>
+            </div>
 
-        <div class="form-group">
-            <label th:for="description">Description</label>
-            <input class="form-control" th:field="*{description}" placeholder="Describe the test"/>
-            <span th:errors="*{description}" class="error"></span>
-        </div>
+            <div class="form-group">
+                <label th:for="description">Description</label>
+                <input class="form-control" th:field="*{description}" placeholder="Describe the test"/>
+                <span th:errors="*{description}" class="error"></span>
+            </div>
 
-        <!--<div class="form-group">-->
-        <!--<label th:for="instruction">Instruction</label>-->
-        <!--<input class="form-control" th:field="*{instruction}" />-->
-        <!--<span th:errors="*{instruction}" class="error"></span>-->
-        <!--</div>-->
-        <div class="form-group">
-            <label th:for="instruction">Instructions</label>
-            <textarea class="form-control" rows="5" id="descripiton" th:field="*{instruction}" placeholder="Explain how to do the test"></textarea>
-        </div>
+            <!--<div class="form-group">-->
+            <!--<label th:for="instruction">Instruction</label>-->
+            <!--<input class="form-control" th:field="*{instruction}" />-->
+            <!--<span th:errors="*{instruction}" class="error"></span>-->
+            <!--</div>-->
+            <div class="form-group">
+                <label th:for="instruction">Instructions</label>
+                <textarea class="form-control" rows="5" id="descripiton" th:field="*{instruction}" placeholder="Explain how to do the test"></textarea>
+            </div>
 
-        <input type="submit" value="Add Test" />
-    </form>
+            <input type="submit" value="Add Test" />
+        </form>
 
-</div>
+    </div>
+    <div class="small-gap"></div>
 
-<div th:replace="fragments :: footer"></div>
+</main>
+
+
+<footer th:replace="fragments :: footer"></footer>
 <div th:replace="fragments :: scripts"></div>
 </body>
 </html>

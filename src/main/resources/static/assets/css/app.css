@@ -50,16 +50,17 @@ nav .brand-logo {
     color: snow;
 }
 
+
 nav ul a {
     transition: background-color .3s;
-    font-size: 1rem;
+    /*font-size: 1rem;*/
     color: #fff;
     display: block;
     padding: 4px 15px 3px;
     cursor: pointer;
     top: 0px;
     position: relative;
-    font-weight: 100;
+    /*font-weight: 100;*/
 }
 
 nav i, nav [class^="mdi-"], nav [class*="mdi-"], nav i.material-icons {
