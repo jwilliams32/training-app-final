@@ -103,6 +103,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/user/edit/*").hasRole("ADMIN")
                 .antMatchers("/user-enable").hasRole("ADMIN")
                 .antMatchers("/user-disable").hasRole("ADMIN")
+                .antMatchers("/doctor/remove-test").hasRole("ADMIN")
             .and()
             .authorizeRequests()
                 .anyRequest().authenticated()

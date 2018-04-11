@@ -131,4 +131,24 @@ public class DoctorController {
 
         return"redirect:/doctor/view/" + theDoctor.getId();
     }
+    @RequestMapping(value="doctor/remove-test/{doctorId}")
+    public String removeTest(Model model, @PathVariable int doctorId){
+
+        Doctor doctor = doctorDao.findOne(doctorId);
+        AddTestItemForm form = new AddTestItemForm(doctor, testDao.findAll());
+
+        model.addAttribute("title", "Remove Test From:" + doctor.getName());
+        model.addAttribute("form", form );
+
+        return"doctor/add-test";
+    }
+    @RequestMapping(value = "doctor/remove-test", method = RequestMethod.POST)
+    public String removeTestItemForm(@RequestParam int [] testIds) {
+
+        for (int testId : testIds) {
+            doctorDao.delete(testId);
+        }
+
+        return "redirect:/doctor";
+    }
 }

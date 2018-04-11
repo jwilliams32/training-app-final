@@ -12,9 +12,9 @@
     <title>Ophthalmology</title>
 </head>
 <body>
-<h1 th:text="${title}">Default Title</h1>
 
 <nav th:replace="fragments :: navigation"></nav>
+<h3 th:text="${title}">Default Title</h3>
 
 <!--in order for form to post there has to be an action in place ex th:action="@{/doctor/add}"-->
 <div class="container">

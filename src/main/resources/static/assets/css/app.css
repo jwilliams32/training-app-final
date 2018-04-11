@@ -11,7 +11,7 @@
  */
 
 
-/* BASE ELEMENTS */
+/* BASE ELEMENTS *
 body {
     display: flex;
     min-height: 100vh;
@@ -34,7 +34,7 @@ p {
 
 
 
-/* NAVIGATION */
+/* NAVIGATION *
 
 nav {
     line-height: 43px;
@@ -53,14 +53,14 @@ nav .brand-logo {
 
 nav ul a {
     transition: background-color .3s;
-    /*font-size: 1rem;*/
+    /*font-size: 1rem;*
     color: #fff;
     display: block;
     padding: 4px 15px 3px;
     cursor: pointer;
     top: 0px;
     position: relative;
-    /*font-weight: 100;*/
+    /*font-weight: 100;*
 }
 
 nav i, nav [class^="mdi-"], nav [class*="mdi-"], nav i.material-icons {
@@ -82,7 +82,7 @@ btn{
     color:#003da5;
 }
 
-/* PAGE CONTAINERS */
+/* PAGE CONTAINERS *
 
 .small-gap {
     height: 25px;
@@ -95,7 +95,7 @@ btn{
 .parallax-container {
     min-height: 380px;
     line-height: 0;
-    /*height: auto;*/
+    /*height: auto;*
     color: rgba(255,255,255,.9);
     width: 100%;
 }
@@ -105,7 +105,7 @@ btn{
 }
 
 
-/* OTHER PAGE ELEMENTS */
+/* OTHER PAGE ELEMENTS *
 
 .page-body {
     margin-top: 65px;
@@ -156,7 +156,7 @@ btn{
 }
 
 
-/* FORM ELEMENTS*/
+/* FORM ELEMENTS*
 
 form.login button[type=submit] {
     width: 100%;
@@ -169,7 +169,7 @@ input:not([type]), input[type="password"]:not(.browser-default) {
 }
 
 
-/* FOOTER */
+/* FOOTER *
 
 footer.page-footer {
     margin: 0;
@@ -181,14 +181,14 @@ footer.page-footer {
 }
 
 
-/* MAPBOX */
+/* MAPBOX *
 
 .mapboxgl-ctrl-top-right .mapboxgl-ctrl {
     position: relative;
     top: 20px;
 }
 
-/* MEDIA QUERIES */
+/* MEDIA QUERIES *
 
 @media only screen and (max-width : 992px) {
     #index-banner .section {
@@ -230,4 +230,47 @@ footer.page-footer {
         top: 5px;
         right: 13px;
     }
+}
+ /* Wapp *
+
+
+.card {
+margin: 10px;
+style: width:300px;
+}
+
+.wrap{
+    width: 100px;
+    margin: auto;
+    margin-top: 100px;
+}
+
+.card:hover{
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.6)
+}
+
+
+#content{
+    display:flex;
+    flex-wrap:wrap;
+
+}
+
+.btn blue {
+    color:#003da5;
+}
+
+a.btn {
+    color:#003da5;
+    text-color:white;
+}
+
+
+ul li a {
+    font-weight:bold;
+    font-size: 12px;
+}
+
+._sluBlue{
+background-color:003da5;
 }
