@@ -8,7 +8,7 @@
     <link rel="shortcut icon" href="http://static1.squarespace.com/static/560351b3e4b07ebf58d7494f/t/592cb5fa6a4963289421f421/1496102394637/Bert+Gilbert_favicon_eye_200x200.jpg?format=1000w" type="image/x-icon"/>
 
     <link rel="stylesheet" th:href="@{/assets/css/app.css}"/>
-    <link rel="stylesheet" href="https://rawgit.com/outboxcraft/beauter/master/beauter.min.css"/>
+    <!--<link rel="stylesheet" href="https://rawgit.com/outboxcraft/beauter/master/beauter.min.css"/>-->
 
     <!--<link rel="shortcut icon" href="http://static1.squarespace.com/static/560351b3e4b07ebf58d7494f/t/592cb5fa6a4963289421f421/1496102394637/Bert+Gilbert_favicon_eye_200x200.jpg?format=1000w" type="image/x-icon"/>-->
     <!--<link rel="stylesheet" th:href="@{../assets/css/wapp.css}"/>-->
@@ -25,18 +25,35 @@
 <p th:unless="${doctors} and ${doctors.size()}">no doctors :(</p>
 
 <div id="content">
-    <div class="card" style="width:300px" th:each="doctor : ${doctors}">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSzO1D532X5LDmJ7LjYWAnVXDHUR7ngSNQZwZUdFB37jz7hvogg5Q" class="_width100" height="100px" />
-        <div class="-content _alignCenter">
-            <strong th:text="${doctor.name}"></strong>
-            <p th:text="${doctor.clinic}"></p>
-            <a th:href="@{'doctor/view/' + ${doctor.id}}"><button class="_small _info" th:text="${doctor.name}" ></button></a>
-            <a th:href="@{'doctor/edit/' + ${doctor.id}}"><button class="_small _danger" >Edit</button></a>
+    <!--<div class="card" style="width:300px" th:each="doctor : ${doctors}">-->
+        <!--<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSzO1D532X5LDmJ7LjYWAnVXDHUR7ngSNQZwZUdFB37jz7hvogg5Q" class="_width100" height="100px" />-->
+        <!--<div class="-content _alignCenter">-->
+            <!--<strong th:text="${doctor.name}"></strong>-->
+            <!--<p th:text="${doctor.clinic}"></p>-->
+            <!--<a th:href="@{'doctor/view/' + ${doctor.id}}"><button class="_small _info" th:text="${doctor.name}" ></button></a>-->
+            <!--<a th:href="@{'doctor/edit/' + ${doctor.id}}"><button class="_small _danger" >Edit</button></a>-->
+
+        <!--</div>-->
+    <!--</div>-->
+
+
+
+
+    <div class="card medium" th:each="doctor : ${doctors}">
+        <div  class="card-image waves-effect waves-block waves-light">
+            <img class="activator" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSzO1D532X5LDmJ7LjYWAnVXDHUR7ngSNQZwZUdFB37jz7hvogg5Q" />
+        </div>
+        <div class="card-content">
+            <span class="card-title activator grey-text text-darken-4" th:text="${doctor.name}">Card Title<i class="material-icons right">more_vert</i></span>
+            <a th:href="@{'doctor/view/' + ${doctor.id}}"><button class="waves-effect blue darken-2 btn">View Doctor</button></a>
+            <p><a href="@{'doctor/edit/' + ${doctor.id}}">Edit Doctor</a></p>
 
         </div>
+        <div class="card-reveal">
+            <span class="card-title grey-text text-darken-4" th:text="${doctor.clinic}">Card Title<i class="material-icons right">close</i></span>
+            <p>Here is some more information about this product that is only revealed once clicked on.</p>
+        </div>
     </div>
-
-
 </div>
 
 

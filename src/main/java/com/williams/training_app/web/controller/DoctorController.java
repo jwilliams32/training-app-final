@@ -140,10 +140,11 @@ public class DoctorController {
         model.addAttribute("title", "Remove Test From:" + doctor.getName());
         model.addAttribute("form", form );
 
-        return"doctor/add-test";
+        return"doctor/remove-test";
     }
     @RequestMapping(value = "doctor/remove-test", method = RequestMethod.POST)
     public String removeTestItemForm(@RequestParam int [] testIds) {
+
 
         for (int testId : testIds) {
             doctorDao.delete(testId);

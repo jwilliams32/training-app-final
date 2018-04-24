@@ -4,7 +4,7 @@
 <head lang="en">
     <meta charset="UTF-8"/>
     <meta description="viewport" content="width=device-width, initial-scale=1"/>
-    <link rel="stylesheet" href="https://rawgit.com/outboxcraft/beauter/master/beauter.min.css"/>
+    <!--<link rel="stylesheet" href="https://rawgit.com/outboxcraft/beauter/master/beauter.min.css"/>-->
     <link rel="stylesheet" th:href="@{/assets/css/app.css}"/>
     <link rel="shortcut icon" href="http://static1.squarespace.com/static/560351b3e4b07ebf58d7494f/t/592cb5fa6a4963289421f421/1496102394637/Bert+Gilbert_favicon_eye_200x200.jpg?format=1000w" type="image/x-icon"/>
     <link rel="shortcut icon" href="http://static1.squarespace.com/static/560351b3e4b07ebf58d7494f/t/592cb5fa6a4963289421f421/1496102394637/Bert+Gilbert_favicon_eye_200x200.jpg?format=1000w" type="image/x-icon"/>
@@ -19,13 +19,24 @@
     <!--<div th:replace="fragments :: flash"></div>-->
 
     <!--<div class="small-gap"></div>-->
-    <div class="container _alignCenter">
-        <div class="card" style="width:200px">
+    <!--<div class="container _alignCenter">-->
+        <!--<div class="card medium" style="width:200px">-->
 
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSzO1D532X5LDmJ7LjYWAnVXDHUR7ngSNQZwZUdFB37jz7hvogg5Q" class="-thumb _alignCenter" height="50px" />
-            <h3 th:text="*{title}" class="_alignCenter"></h3>
+            <!--<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSzO1D532X5LDmJ7LjYWAnVXDHUR7ngSNQZwZUdFB37jz7hvogg5Q" class="-thumb _alignCenter" height="50px" />-->
+            <!--<p th:text="*{title}" class="_alignCenter"></p>-->
+        <!--</div>-->
+    <!--</div>-->
+<div class="container">
+    <div class="card small">
+        <div  class="card-image waves-effect waves-block waves-light">
+            <img class="responsive-img" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSzO1D532X5LDmJ7LjYWAnVXDHUR7ngSNQZwZUdFB37jz7hvogg5Q"/>
+        </div>
+        <div class="card-content">
+            <span class="card-title activator grey-text text-darken-4" th:text="${title}">Card Title<i class="material-icons right">more_vert</i></span>
         </div>
     </div>
+</div>
+
 
     <!--<div class="container">-->
 
@@ -43,32 +54,29 @@
             <!--</div>-->
 
         <!--</div>-->
-
-    <div>
-        <button class="accordion _box _shadow _dark">Test Description</button>
-        <div class="-panel">
-            <p th:text="*{clinic}"></p>
-        </div>
-    </div>
-
-    <div>
-        <button class="accordion _box _shadow _dark">Instructions</button>
-        <div class="-panel">
-            <p th:text="*{instruction}"></p>
-        </div>
-    </div>
-    <div>
-        <button class="accordion _box _shadow _dark">Test</button>
-        <div class="-panel">
-            <div>
+    <ul class="collapsible">
+        <li>
+            <div class="collapsible-header"><i class="material-icons">filter_drama</i>Doctors Description</div>
+            <div class="collapsible-body"><span th:text="*{clinic}">Lorem ipsum dolor sit amet.</span></div>
+        </li>
+        <li>
+            <div class="collapsible-header"><i class="material-icons">place</i>Instructions</div>
+            <div class="collapsible-body"><span th:text="*{instruction}">Lorem ipsum dolor sit amet.</span></div>
+        </li>
+        <li>
+            <div class="collapsible-header"><i class="material-icons">whatshot</i>Doctor Tests</div>
+            <div class="collapsible-body">
+                <div>
                 <ul th:each="test : ${tests}">
                     <a th:href="'/test/view/' + ${test.id}">
-                        <li th:text="${test.name}"></li>
+                       <h5><li th:text="${test.name}"></li> </h5>
                     </a>
                 </ul>
+                </div>
             </div>
-        </div>
-    </div>
+        </li>
+    </ul>
+
 
     <!--</div>-->
         <!--<h1>Edit Test <span th:text="${doctor.name}"></span></h1>-->
