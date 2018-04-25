@@ -46,7 +46,7 @@
         <div class="card-content">
             <span class="card-title activator grey-text text-darken-4" th:text="${doctor.name}">Card Title<i class="material-icons right">more_vert</i></span>
             <a th:href="@{'doctor/view/' + ${doctor.id}}"><button class="waves-effect blue darken-2 btn">View Doctor</button></a>
-            <p><a href="@{'doctor/edit/' + ${doctor.id}}">Edit Doctor</a></p>
+            <p><a th:href="@{'doctor/edit/' + ${doctor.id}}">Edit Doctor</a></p>
 
         </div>
         <div class="card-reveal">
